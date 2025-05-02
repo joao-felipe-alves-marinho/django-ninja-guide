@@ -118,6 +118,7 @@ pasta_do_projeto/
 │       └── 0001_initial.py  # (Gerado após makemigrations)
 ├── db.sqlite3
 ├── requirements.txt
+├── LICENSE
 ├── .gitignore
 ├── .dockerignore
 └── Dockerfile
