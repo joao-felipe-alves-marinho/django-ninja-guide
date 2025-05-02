@@ -274,7 +274,7 @@ def get_pets(request):
 def get_pet(request, pet_id: int):
     return get_object_or_404(Pet, id=pet_id)
 
-@api.post("/pets", response=PetSchema)
+@api.post("/pets", response={201: PetSchema})
 def create_pet(request, payload: CreatePetSchema):
     pet = Pet.objects.create(**payload.dict())
     return 201, pet
@@ -287,7 +287,7 @@ def update_pet(request, pet_id: int, payload: UpdatePetSchema):
     pet.save()
     return pet
 
-@api.delete("/pets/{pet_id}")
+@api.delete("/pets/{pet_id}", response:{204: None})
 def delete_pet(request, pet_id: int):
     pet = get_object_or_404(Pet, id=pet_id)
     pet.delete()
